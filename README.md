@@ -372,7 +372,6 @@ trap
 
 # BEST LEARNING ORDER FOR YOU 🎯
 
-Since you're aiming toward Cloud/DevOps/SRE:
 
 ## Learn in this order:
 
@@ -391,7 +390,6 @@ Since you're aiming toward Cloud/DevOps/SRE:
 
 # MOST IMPORTANT SHELL SCRIPTING TOPICS FOR DEVOPS
 
-If you skip these, your scripting foundation becomes shaky:
 
 | Topic        | Importance         |
 | ------------ | ------------------ |
@@ -406,59 +404,7 @@ If you skip these, your scripting foundation becomes shaky:
 
 ---
 
-# REALITY CHECK 🚨
 
-Most companies do NOT expect juniors to write giant enterprise shell frameworks.
-
-But they DO expect:
-
-* automation mindset
-* troubleshooting scripts
-* monitoring scripts
-* deployment helpers
-* log parsing
-
-That’s the sweet spot.
-
----
-
-# BEST MINI PROJECTS FOR YOUR RESUME
-
-## Beginner
-
-* Calculator
-* User creation script
-* Backup script
-
-## Intermediate
-
-* Server health monitoring
-* Automated log cleaner
-* Failed login detector
-
-## DevOps-Level
-
-* EC2 provisioning helper
-* Docker cleanup automation
-* Kubernetes pod monitor
-* CI/CD helper scripts
-
----
-
-# YOUR BIGGEST ADVANTAGE
-
-Because you're already learning DevOps, shell scripting will stick faster.
-
-Why?
-
-Because suddenly scripts solve REAL problems:
-
-* restarting services
-* monitoring EC2
-* automating deployments
-* parsing logs
-* backups
-* troubleshooting
 
 Without real infrastructure exposure, shell scripting feels academic.
 
