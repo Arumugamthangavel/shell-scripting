@@ -5,48 +5,38 @@
 # ==========================================
 
 LOGFILE="system_health.log"
-DATE=$(date)
+DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
-echo "==================================" >> $LOGFILE
-echo "System Health Report - $DATE" >> $LOGFILE
-echo "==================================" >> $LOGFILE
+# Use a single block append to drastically reduce file I/O operations
+{
+    echo "=================================="
+    echo "System Health Report - $DATE"
+    echo "=================================="
 
-# HOSTNAME
-echo "" >> $LOGFILE
-echo "Hostname:" >> $LOGFILE
-hostname >> $LOGFILE
+    echo -e "\nHostname:"
+    hostname
 
-# UPTIME
-echo "" >> $LOGFILE
-echo "System Uptime:" >> $LOGFILE
-uptime >> $LOGFILE
+    echo -e "\nSystem Uptime:"
+    uptime
 
-# MEMORY USAGE
-echo "" >> $LOGFILE
-echo "Memory Usage:" >> $LOGFILE
-free -h >> $LOGFILE
+    echo -e "\nMemory Usage:"
+    free -h
 
-# DISK USAGE
-echo "" >> $LOGFILE
-echo "Disk Usage:" >> $LOGFILE
-df -h >> $LOGFILE
+    echo -e "\nDisk Usage:"
+    df -h
 
-# CPU LOAD
-echo "" >> $LOGFILE
-echo "CPU Load:" >> $LOGFILE
-top -bn1 | grep "load average" >> $LOGFILE
+    echo -e "\nCPU Load:"
+    uptime | awk -F'load average:' '{print $2}'
 
-# DISK ALERT CHECK
-DISK_USAGE=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
+    echo -e "\nDisk Alert Check:"
+    # FIXED: --output=pcent forces df to return ONLY the percentage, safely handling long device paths
+    DISK_USAGE=$(df --output=pcent / | tail -n 1 | tr -d ' %')
 
-echo "" >> $LOGFILE
+    if [ "$DISK_USAGE" -gt 80 ]; then
+        echo "WARNING: Disk usage is above 80% (Current: ${DISK_USAGE}%)"
+    else
+        echo "Disk usage is normal (Current: ${DISK_USAGE}%)"
+    fi
 
-if [ $DISK_USAGE -gt 80 ]
-then
-    echo "WARNING: Disk usage is above 80%" >> $LOGFILE
-else
-    echo "Disk usage is normal" >> $LOGFILE
-fi
-
-echo "" >> $LOGFILE
-echo "Health check completed successfully." >> $LOGFILE
+    echo -e "\nHealth check completed successfully.\n"
+} >> "$LOGFILE"
