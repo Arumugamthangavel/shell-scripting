@@ -1,4 +1,4 @@
-Most beginners learn commands one-by-one like collecting Pokémon cards.
+learn commands one-by-one like collecting Pokémon cards.
 Shell scripting teaches the terminal to *think in sequences*.
 
 
@@ -42,7 +42,7 @@ or
 ./backup.sh
 ```
 
-Boom. Tiny automation worker activated. ⚙️
+Boom. Tiny automation worker activated. 
 
 ---
 
