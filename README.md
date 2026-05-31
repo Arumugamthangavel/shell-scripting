@@ -33,11 +33,13 @@ Then run:
 
 change mod
 ```bash
-chmod +x script.sh
+chmod +x backup.sh
 ```
 run it
 ```bash
 bash backup.sh
+or
+./backup.sh
 ```
 
 Boom. Tiny automation worker activated. ⚙️
