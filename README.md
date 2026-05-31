@@ -31,6 +31,11 @@ backup.sh
 
 Then run:
 
+change mod
+```bash
+chmod +x script.sh
+```
+run it
 ```bash
 bash backup.sh
 ```
