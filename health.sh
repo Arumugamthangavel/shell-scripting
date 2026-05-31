@@ -7,7 +7,6 @@
 LOGFILE="system_health.log"
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
-# Use a single block append to drastically reduce file I/O operations
 {
     echo "=================================="
     echo "System Health Report - $DATE"
@@ -29,7 +28,6 @@ DATE=$(date '+%Y-%m-%d %H:%M:%S')
     uptime | awk -F'load average:' '{print $2}'
 
     echo -e "\nDisk Alert Check:"
-    # FIXED: --output=pcent forces df to return ONLY the percentage, safely handling long device paths
     DISK_USAGE=$(df --output=pcent / | tail -n 1 | tr -d ' %')
 
     if [ "$DISK_USAGE" -gt 80 ]; then
