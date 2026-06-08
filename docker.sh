@@ -59,6 +59,7 @@ echo "docker run hello-world"
 
 
 ```
+nano install-docker.sh
 chmod +x install-docker.sh
 ./install-docker.sh
 ```
