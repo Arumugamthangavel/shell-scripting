@@ -1,3 +1,6 @@
+prometheus on ubuntu
+Prometheus: http://<server-ip>:9090
+------------------------------------------
 #!/bin/bash
 
 # Create Prometheus user
