@@ -1,4 +1,5 @@
 grafana on ubuntu
+Grafana: http://<server-ip>:3000
 -------------------------------
 #!/bin/bash
 
